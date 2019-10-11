@@ -1,0 +1,490 @@
+/*
+Theme Name: Nikazhorzholiani
+Theme URI: http://mEgaweb.ge
+Description: Photographer's minimalist theme
+Version: 1.0
+Author: Lado Mikiashvili
+Author URI: http://mEgaweb.ge
+*/
+
+//Variables
+$mobile_width: 600px;
+$tablet_width: 767px;
+$laptop_width: 959px;
+$desktop_width: 1500px;
+$desktopFullWidth: 1921px;
+
+$black: #565656;
+
+* {
+  outline: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+html, body {
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 600;
+  color: $black;
+
+}
+
+header.mobile-header {
+  position: relative;
+  z-index: 500;
+
+  @media (min-width: $laptop_width) {
+    display: none;
+  }
+
+  .mobile-top {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    text-align: center;
+    background: rgba(#fff, .95);
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+
+    a.logo {
+      margin-top: 10px;
+      height: 60px;
+      padding: 10px;
+      display: inline-block;
+      position: relative;
+      -webkit-transition: .3s;
+      -moz-transition: .3s;
+      -ms-transition: .3s;
+      -o-transition: .3s;
+      transition: .3s;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    button.hamburger-button {
+      position: absolute;
+      width: 50px;
+      top: 50%;
+      right: 10px;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+
+      svg {
+        width: 100%;
+      }
+    }
+
+    &.scrolled {
+      height: 70px;
+
+      a.logo {
+        margin-top: 0;
+        height: 55px;
+        padding: 7px;
+      }
+    }
+  }
+
+  .mobile-menu-wrap {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    background-color: rgba(#fff, .95);
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    opacity: 0;
+    visibility: hidden;
+
+
+    nav.mobile-menu {
+      width: 100%;
+      min-height: 100%;
+      position: relative;
+
+      img.logo {
+        margin-top: 10px;
+        height: 70px;
+        padding: 10px;
+        display: inline-block;
+        position: relative;
+      }
+
+      button.close-button {
+        position: fixed;
+        width: 45px;
+        top: 30px;
+        right: 10px;
+
+        svg {
+          width: 100%;
+        }
+      }
+
+      menu {
+        list-style-type: none;
+        width: 200px;
+        margin: 20px auto;
+        padding: 0;
+
+        li {
+          position: relative;
+          padding: 30px 0;
+
+          &:before {
+            content: '';
+            background-color: #707070;
+            height: 1px;
+            width: 30%;
+            position: absolute;
+            top: 0;
+            left: 35%;
+          }
+
+          &:first-of-type:before {
+            display: none;
+          }
+
+          &:last-of-type:before {
+            width: 100%;
+            left: 0;
+          }
+
+          a {
+            color: #565656;
+            text-decoration: none;
+            letter-spacing: 1px;
+          }
+        }
+      }
+    }
+  }
+
+  &.menu-opened {
+    .mobile-top {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .mobile-menu-wrap {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+header.desktop-header {
+  display: none;
+  width: 100%;
+  position: relative;
+
+  @media (min-width: $laptop_width) {
+    display: block;
+  }
+
+  a.logo {
+    width: 100px;
+    display: block;
+    margin: 40px auto;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  nav.desktop-menu {
+    font-size: 16px;
+    line-height: 18px;
+
+    menu {
+      list-style-type: none;
+      display: table;
+      margin: 30px auto 0;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        padding: 0 15px;
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          right: 0;
+          top: calc(50% - 7px);
+          height: 14px;
+          width: 1px;
+          background-color: $black;
+        }
+
+        &:last-of-type:after {
+          display: none;
+        }
+
+        a {
+          text-decoration: none;
+          color: $black;
+          padding: 5px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $desktop_width) {
+    a.logo {
+      width: 130px;
+    }
+
+    nav.desktop-menu {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+}
+
+main {
+  margin-top: 110px;
+  width: 100%;
+  position: relative;
+
+  @media (min-width: $laptop_width) {
+    margin-top: 40px;
+  }
+
+  @media (min-width: $laptop_width) {
+    margin-top: 50px;
+  }
+}
+
+section#images-grid {
+  width: 94%;
+  max-width: 300px;
+  position: relative;
+  margin: auto;
+
+  .image-container {
+    width: 100%;
+    position: absolute;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $mobile_width) {
+    max-width: 400px;
+  }
+
+  @media (min-width: $tablet_width) {
+    max-width: 600px;
+
+    .image-container {
+      width: 47%;
+    }
+  }
+
+  @media (min-width: $laptop_width) {
+    max-width: 900px;
+
+    .image-container {
+      width: 30%;
+    }
+  }
+
+  @media (min-width: $desktop_width) {
+    max-width: 1200px;
+  }
+}
+
+
+.lightbox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#fff, .95);
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+
+  &.opened {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #close-lightbox {
+    position: absolute;
+    width: 35px;
+    right: 30px;
+    top: 35px;
+    z-index: 100;
+    cursor: pointer;
+
+    svg {
+      width: 100%;
+    }
+  }
+
+  #prev-image, #next-image {
+    position: absolute;
+    height: 52px;
+    padding: 2px 4px;
+    top: calc(50% - 26px);
+    z-index: 50;
+    cursor: pointer;
+
+
+    svg {
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+
+  #prev-image {
+    left: 2px;
+  }
+
+  #next-image {
+    right: 2px;
+  }
+
+  .image-wrap {
+    position: absolute;
+    width: calc(100% - 100px);
+    height: calc(100% - 100px);
+    top: 50px;
+    left: 50px;
+    text-align: center;
+
+
+    img {
+      position: absolute;
+      display: inline-block;
+      max-width: 100%;
+      max-height: 100%;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    @media (min-width: 400px) {
+      top: 80px;
+    }
+  }
+
+  @media (min-width: $mobile_width) {
+    #prev-image {
+      left: 20px;
+    }
+
+    #next-image {
+      right: 20px;
+    }
+
+    .image-wrap {
+      width: calc(100% - 150px);
+      height: calc(100% - 50px);
+      top: 25px;
+      left: 75px;
+    }
+  }
+
+  @media (min-width: $tablet_width) {
+    #prev-image {
+      left: 40px;
+    }
+
+    #next-image {
+      right: 40px;
+    }
+
+    .image-wrap {
+      width: calc(100% - 220px);
+      left: 110px;
+    }
+  }
+
+  @media (min-width: $laptop_width) {
+
+    #close-lightbox {
+      right: 60px;
+    }
+
+    #prev-image {
+      left: 60px;
+    }
+
+    #next-image {
+      right: 60px;
+    }
+
+    .image-wrap {
+      height: calc(100% - 60px);
+      top: 30px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+
+    #close-lightbox {
+      right: 60px;
+    }
+
+    #prev-image {
+      left: 140px;
+    }
+
+    #next-image {
+      right: 140px;
+    }
+
+    .image-wrap {
+      width: calc(100% - 400px);
+      left: 200px;
+    }
+  }
+}
