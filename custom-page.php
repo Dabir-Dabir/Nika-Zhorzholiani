@@ -18,6 +18,6 @@
 
 <ul class="social social-desktop custom-page">
     <li><a href="https://www.facebook.com/zhorzholianni1" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/facebook.png" alt="Facebook"></a></li>
-    <li><a href="https://www.instagram.com/nikazhorzholiani1/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/instagram.png" alt="Facebook"></a></li>
+    <li><a href="https://www.instagram.com/nikazhorzholiani1/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/instagram.png" alt="Instagram"></a></li>
 </ul>
 <?php get_footer(); ?>

@@ -14,8 +14,11 @@
 <header id="mobile-header" class="mobile-header">
     <div id="mobile-top" class="mobile-top">
         <a href="<?php echo get_home_url(); ?>" class="logo ajax">
-            <img src="<?php bloginfo('template_directory'); ?>/img/logo-transparent.png" alt="Nika Zhorzholiani"
-                 class="logo">
+            <?php
+            $custom_logo_id = get_theme_mod('custom_logo');
+            $logo = wp_get_attachment_image_src($custom_logo_id, 'small');
+            ?>
+            <img class="logo" src="<?= esc_url($logo[0]); ?>" alt="<?= get_bloginfo('name'); ?>">
         </a>
         <button id="hamburger-button" class="hamburger-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="40.964" height="32.463" viewBox="0 0 40.964 32.463">
@@ -35,8 +38,11 @@
     </div>
     <div id="mobile-menu-wrap" class="mobile-menu-wrap">
         <nav class="mobile-menu menu">
-            <img src="<?php bloginfo('template_directory'); ?>/img/logo-transparent.png" alt="Nika Zhorzholiani"
-                 class="logo">
+            <?php
+            $custom_logo_id = get_theme_mod('custom_logo');
+            $logo = wp_get_attachment_image_src($custom_logo_id, 'small');
+            ?>
+            <img class="logo" src="<?= esc_url($logo[0]); ?>" alt="<?= get_bloginfo('name'); ?>">
             <button id="close-mobile-menu" class="close-button">
                 <svg id="Close_Button" data-name="Close Button" xmlns="http://www.w3.org/2000/svg" width="33.901"
                      height="33.901" viewBox="0 0 33.901 33.901">
@@ -61,8 +67,11 @@
 </header>
 <header id="desktop-header" class="desktop-header">
     <a href="<?php echo get_home_url(); ?>" class="logo ajax">
-        <img src="<?php bloginfo('template_directory'); ?>/img/logo-transparent.png" alt="Nika Zhorzholiani"
-             class="logo">
+        <?php
+        $custom_logo_id = get_theme_mod('custom_logo');
+        $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+        ?>
+        <img class="logo" src="<?= esc_url($logo[0]); ?>" alt="<?= get_bloginfo('name'); ?>">
     </a>
     <nav class="desktop-menu menu">
         <?php wp_nav_menu(
