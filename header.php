@@ -37,6 +37,10 @@
         </button>
     </div>
     <div id="mobile-menu-wrap" class="mobile-menu-wrap">
+        <ul class="social social-mobile">
+            <li><a href="https://www.facebook.com/zhorzholianni1" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/facebook.png" alt="Facebook"></a></li>
+            <li><a href="https://www.instagram.com/nikazhorzholiani1/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/instagram.png" alt="Instagram"></a></li>
+        </ul>
         <nav class="mobile-menu menu">
             <?php
             $custom_logo_id = get_theme_mod('custom_logo');
@@ -66,6 +70,10 @@
     </div>
 </header>
 <header id="desktop-header" class="desktop-header">
+    <ul class="social social-desktop">
+        <li><a href="https://www.facebook.com/zhorzholianni1" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/facebook.png" alt="Facebook"></a></li>
+        <li><a href="https://www.instagram.com/nikazhorzholiani1/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/instagram.png" alt="instagram"></a></li>
+    </ul>
     <a href="<?php echo get_home_url(); ?>" class="logo ajax">
         <?php
         $custom_logo_id = get_theme_mod('custom_logo');

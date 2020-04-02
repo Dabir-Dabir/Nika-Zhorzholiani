@@ -58,7 +58,7 @@ $(document).on('click', '#back-to-top', function () {
 	return false;
 });
 
-if (window_width < mobile_width) {
+if (window_width < laptop_width) {
 
 	$(window).scroll(function () {
 		var window_scroll_top = $(window).scrollTop();
