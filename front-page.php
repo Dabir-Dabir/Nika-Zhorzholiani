@@ -45,6 +45,8 @@ $event_order_count = 0;
         <a href="<?php the_permalink(); ?>" class="event__left">
             <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="event__thumbnail img"/>
             <div class="event__overlay"></div>
+            <h5 class="event__date"><?php echo get_post_meta(get_the_ID(), 'ev-date', TRUE); ?></h5>
+            <h5 class="event__location"><?php echo get_post_meta(get_the_ID(), 'ev-location', TRUE); ?></h5>
             <h3 class="event__title"><?php the_title(); ?></h3>
         </a>
         <div class="event__right">

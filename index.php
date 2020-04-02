@@ -21,7 +21,7 @@
             $big_image = wp_get_attachment_image_src( $attachment->ID, 'full' );
 
             ?>
-            <div class="image-container" data-width="<?php echo $small_image[1]; ?>" data-height="<?php echo $small_image[2]; ?>"">
+            <div class="image-container" data-width="<?php echo $small_image[1]; ?>" data-height="<?php echo $small_image[2]; ?>">
                 <img src='' data-src="<?php echo $small_image[0]; ?>" data-medium-image="<?php echo $medium_image[0]; ?>" data-big-image="<?php echo $big_image[0]; ?>" class="img" />
                 <span class="img-ov"></span>
             </div>

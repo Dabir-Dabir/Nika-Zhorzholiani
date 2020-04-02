@@ -79,7 +79,7 @@ function custom_post_type($names, $name, $label) {
 
     $args = array(
         'label'               => __( $label, 'Nika Zhorzholiani' ),
-        'description'         => __( $name, 'Nika Zhorzholiani' ),
+        'Date'         => __( $name, 'Nika Zhorzholiani' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'thumbnail' ),
@@ -111,36 +111,70 @@ function custom_post_type($names, $name, $label) {
 add_action( 'init', function() {return custom_post_type('Weddings', 'Wedding', 'weddings'); }, 0 );
 
 
-// Description meta-box
+// Date meta-box
 
-function add_ev_description_meta_box() {
-    $post_types = array ( 'weddings', 'commercials', 'personals' );
+function add_ev_date_meta_box() {
+    $post_types = array ( 'weddings' );
     foreach ($post_types as $post_type) {
         add_meta_box(
-            'ev-description',
-            'Description',
-            'ev_description_html',
+            'ev-date',
+            'Date',
+            'ev_date_html',
             $post_type,
-            'normal'
+            'side'
         );
     }
 }
-add_action('add_meta_boxes', 'add_ev_description_meta_box');
+add_action('add_meta_boxes', 'add_ev_date_meta_box');
 
-function  ev_description_html( $post ) {
-    echo '<label for="ev-description">Description</label> ';
-    echo '<textarea style="width:100%" id="ev-description" name="ev-description">';
-    echo esc_attr( get_post_meta( get_the_ID(), 'ev-description', true ) );
-    echo '</textarea>';
+function  ev_date_html( $post ) {
+    echo '<label for="ev-date">Date</label> ';
+    echo '<input id="ev-date" name="ev-date" value="';
+    echo esc_attr( get_post_meta( get_the_ID(), 'ev-date', true ) );
+    echo '">';
 }
 
-function save_ev_description_meta_box( $post_id ) {
+function save_ev_date_meta_box( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
     if ( $parent_id = wp_is_post_revision( $post_id ) ) {
         $post_id = $parent_id;
     }
-    update_post_meta( $post_id, 'ev-description', sanitize_text_field( $_POST['ev-description'] ) );
+    update_post_meta( $post_id, 'ev-date', sanitize_text_field( $_POST['ev-date'] ) );
 }
-add_action( 'save_post', 'save_ev_description_meta_box' );
+add_action( 'save_post', 'save_ev_date_meta_box' );
 
-// END Description metabox
+// END Date metabox
+
+// Location meta-box
+
+function add_ev_location_meta_box() {
+    $post_types = array ( 'weddings' );
+    foreach ($post_types as $post_type) {
+        add_meta_box(
+            'ev-location',
+            'Location',
+            'ev_location_html',
+            $post_type,
+            'side'
+        );
+    }
+}
+add_action('add_meta_boxes', 'add_ev_location_meta_box');
+
+function  ev_location_html( $post ) {
+    echo '<label for="ev-location">Location</label> ';
+    echo '<input type="text" id="ev-location" name="ev-location" value="';
+    echo esc_attr( get_post_meta( get_the_ID(), 'ev-location', true ) );
+    echo '">';
+}
+
+function save_ev_location_meta_box( $post_id ) {
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+    if ( $parent_id = wp_is_post_revision( $post_id ) ) {
+        $post_id = $parent_id;
+    }
+    update_post_meta( $post_id, 'ev-location', sanitize_text_field( $_POST['ev-location'] ) );
+}
+add_action( 'save_post', 'save_ev_location_meta_box' );
+
+// END Location metabox
