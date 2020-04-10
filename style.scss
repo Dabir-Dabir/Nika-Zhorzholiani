@@ -116,6 +116,13 @@ button.back-to-top {
     width: 50px;
   }
 
+  @media (min-width: 1200px) {
+    right: auto;
+    left: calc(50% + 550px);
+    bottom: 60px;
+    width: 50px;
+  }
+
   @media (min-width: 1500px) {
     right: auto;
     left: calc(50% + 650px);
@@ -1021,22 +1028,32 @@ section#contact-page {
     text-align: center;
   }
 
+  &__switch-box {
+    text-align: right;
+    margin: 30px auto 10px;
+  }
+
+  &__switch {
+    opacity: .7;
+    transition: .2s;
+    margin-right: 5px;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
   &__images {
-    margin-top: 60px;
-    display: block;
+    display: none;
     width: 100%;
     text-align: left;
-
-    @media (min-width: 992px) {
-      text-align: justify;
-    }
   }
 
   &__image {
     position: relative;
     display: inline-block;
     width: auto;
-    height: 165px;
+    height: 120px;
     margin-left: 2px;
     margin-right: 2px;
     margin-bottom: 5px;
@@ -1068,26 +1085,57 @@ section#contact-page {
     }
 
     @media (min-width: 500px) {
-      height: 170px;
+      height: 150px;
       margin-left: 4px;
       margin-right: 4px;
       margin-bottom: 8px;
     }
 
     @media (min-width: 768px) {
-      height: 180px;
+      height: 155px;
       margin-left: 5px;
       margin-right: 5px;
       margin-bottom: 10px;
     }
 
     @media (min-width: 992px) {
-      height: 230px;
+      height: 195px;
     }
 
     @media (min-width: 1200px) {
-      height: 280px;
+      height: 200px;
     }
+  }
+
+  &__gallery {
+    position: relative;
+    display: none;
+    text-align: center;
+
+    &-image {
+      display: inline-block;
+      margin: 1px;
+      max-width: calc(100% - 2px);
+      max-height: 770px;
+
+      @media (min-width: 768px) {
+        margin: 5px;
+        max-width: calc(100% - 10px);
+        max-height: 543px;
+      }
+
+      @media (min-width: 959px) {
+        max-height: 670px;
+      }
+
+      @media (min-width: 1200px) {
+        max-height: 805px;
+      }
+    }
+  }
+
+  &--visible {
+    display: block;
   }
 }
 
@@ -1293,7 +1341,7 @@ section#contact-page {
     &__location {
       position: absolute;
       left: 10%;
-      top: 90px;
+      top: 94px;
       width: 80%;
       display: block;
       text-align: center;

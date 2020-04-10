@@ -579,6 +579,24 @@ function currentMenuItem() {
 	});
 }
 
+function chooseSwitchGallery() {
+	if(!$('#single-event__gallery').hasClass('single-event__switch--active')) {
+		$('#single-event__gallery').addClass('single-event__switch--active');
+		$('#single-event__images').removeClass('single-event__switch--active');
+		$('.single-event__gallery').addClass('single-event--visible');
+		$('.single-event__images').removeClass('single-event--visible');
+	}
+}
+
+function chooseSwitchImages() {
+	if(!$('#single-event__images').hasClass('single-event__switch--active')) {
+		$('#single-event__images').addClass('single-event__switch--active');
+		$('#single-event__gallery').removeClass('single-event__switch--active');
+		$('.single-event__images').addClass('single-event--visible');
+		$('.single-event__gallery').removeClass('single-event--visible');
+	}
+}
+
 
 $(document).ready(function ($) {
 
@@ -587,6 +605,14 @@ $(document).ready(function ($) {
 	openLightboxSingle();
 	ajaxLoadPage();
 	currentMenuItem();
+
+	$('#single-event__gallery').click(function () {
+		chooseSwitchGallery();
+	});
+
+	$('#single-event__images').click(function () {
+		chooseSwitchImages();
+	});
 
 	$('.img').Lazy({
 		effect: "fadeIn"
